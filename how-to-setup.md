@@ -1,3 +1,8 @@
+0. 安装docker，下载docker镜像压缩包，装载镜像压缩包
+```
+docker load -i ubuntu2004-odm.tar
+```
+
 1. 进入docker容器
 ```
 cd /path/to/ODM
