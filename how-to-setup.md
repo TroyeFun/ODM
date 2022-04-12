@@ -11,7 +11,7 @@ cd /code
 bash configure.sh install
 ./run.sh --project-path /datasets odm_data_aukerman  # 需下载aukerman数据集并放到宿主机的数据集目录下
 ```
-因为版本问题，默认安装的opencv-python可能是python3.9的，但容器内使用的是python3.8，如果运行时碰到import cv2的问题，需把SuperBuild/install/python3.9删除，避免版本混乱的问题
+因为版本问题，默认安装的opencv-python可能是python3.9的，但容器内使用的是python3.8，如果运行时碰到import cv2的问题，需把SuperBuild/install/lib/python3.9删除，避免版本混乱的问题
 
 3. 运行PX4仿真
 ```
