@@ -1,6 +1,6 @@
-0. 安装docker，下载docker镜像压缩包，装载镜像压缩包
+0. 安装docker，拉取镜像（镜像比较大，也可直接找hongyu要压缩包）
 ```
-docker load -i ubuntu2004-odm.tar
+docker pull troyefun/odm-ubuntu2004:latest
 ```
 
 1. 进入docker容器
