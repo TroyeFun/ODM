@@ -7,7 +7,7 @@ ExternalProject_Add(${_proj_name}
   STAMP_DIR         ${_SB_BINARY_DIR}/stamp
   #--Download step--------------
   DOWNLOAD_DIR      ${SB_DOWNLOAD_DIR}
-  URL           https://github.com/PointCloudLibrary/pcl/archive/refs/tags/pcl-1.11.1.zip
+  URL           https://github.com/PointCloudLibrary/pcl/archive/refs/tags/pcl-1.10.1.zip
   #--Update/Patch step----------
   UPDATE_COMMAND    ""
   #--Configure step-------------

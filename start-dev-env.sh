@@ -100,6 +100,7 @@ export PORT="${PORT:=3000}"
 export QTC="${QTC:=NO}"
 export IMAGE="${IMAGE:=opendronemap/nodeodm}"
 export GPU="${GPU:=NO}"
+export REPOS="${REPOS:=~}"
 
 if [ -z "$DATA" ]; then
     echo "Usage: DATA=/path/to/datasets [VARS] $0"
@@ -141,5 +142,6 @@ if [[ "$GPU" != "NO" ]]; then
 fi
 
 xhost + || true
-docker run -ti --entrypoint bash --name odmdev --user root -v $(pwd):/code -v "$DATA":/datasets -p $PORT:3000 $GPU_FLAGS --privileged -e DISPLAY -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 -v="/tmp/.X11-unix:/tmp/.X11-unix:rw" -v="$HOME/.odm-dev-home:/home/$USER" $IMAGE -c "/code/start-dev-env.sh --setup $USER $USER_ID $GROUP_ID $QTC"
+docker run -ti --entrypoint bash --name odmdev1 --user root --network host -v $(pwd):/code -v "$DATA":/datasets -v $REPOS:/repos -p $PORT:3000 $GPU_FLAGS --privileged -e DISPLAY -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 -v="/tmp/.X11-unix:/tmp/.X11-unix:rw" -v="$HOME/.odm-dev-home:/home/$USER" $IMAGE
+# -c "/code/start-dev-env.sh --setup $USER $USER_ID $GROUP_ID $QTC"
 exit 0
